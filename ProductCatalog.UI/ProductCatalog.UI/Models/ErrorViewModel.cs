@@ -1,5 +1,3 @@
-using System;
-
 namespace ProductCatalog.UI.Models
 {
     public class ErrorViewModel

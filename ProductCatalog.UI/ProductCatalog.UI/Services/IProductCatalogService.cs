@@ -1,8 +1,6 @@
-﻿using System;
+﻿using ProductCatalog.UI.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using ProductCatalog.UI.Models;
 
 namespace ProductCatalog.UI.Services
 {

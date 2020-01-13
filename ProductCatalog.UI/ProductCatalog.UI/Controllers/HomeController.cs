@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProductCatalog.UI.Models;
 using ProductCatalog.UI.Services;
+using System.Threading.Tasks;
 
 namespace ProductCatalog.UI.Controllers
 {

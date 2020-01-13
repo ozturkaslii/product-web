@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ProductCatalog.UI.Models
+﻿namespace ProductCatalog.UI.Models
 {
     public class ProductCreateResponseModel
     {
