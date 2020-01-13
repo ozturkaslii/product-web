@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProductCatalog.UI.Services
 {
-    public class ProductCatalogService :IProductCatalogService
+    public class ProductCatalogService : IProductCatalogService
     {
         private const string Endpoint = "api/Products";
 
@@ -59,7 +59,7 @@ namespace ProductCatalog.UI.Services
 
             if (!createResponse.IsSuccessStatusCode)
                 throw new Exception("Product couldn't be added.");
-               
+
             var result = createResponse.Content.ReadAsStringAsync().Result;
             var response = JsonConvert.DeserializeObject<ProductCreateResponseModel>(result);
 
@@ -71,10 +71,10 @@ namespace ProductCatalog.UI.Services
         /// </summary>
         /// <param name="productUpdateRequestModel"></param>
         /// <returns></returns>
-        public async Task UpdateProduct(ProductUpdateRequestModel productUpdateRequestModel)
+        public async Task UpdateProduct(int productId, ProductUpdateRequestModel productUpdateRequestModel)
         {
             var content = new StringContent(JsonConvert.SerializeObject(productUpdateRequestModel), Encoding.UTF8, "application/json");
-            var updateResponse = await _httpClient.PutAsync($"{Endpoint}/{productUpdateRequestModel.Id}", content);
+            var updateResponse = await _httpClient.PutAsync($"{Endpoint}/{productId}", content);
 
             if (!updateResponse.IsSuccessStatusCode)
                 throw new Exception("Product couldn't be updated.");
@@ -85,11 +85,11 @@ namespace ProductCatalog.UI.Services
         /// </summary>
         /// <param name="productId"></param>
         /// <returns></returns>
-       public async Task DeleteProduct(int productId)
-       {
-           var deleteResponse = await _httpClient.DeleteAsync($"{Endpoint}/{productId}");
-           if (!deleteResponse.IsSuccessStatusCode)
-               throw new Exception("Product couldn't be deleted.");
+        public async Task DeleteProduct(int productId)
+        {
+            var deleteResponse = await _httpClient.DeleteAsync($"{Endpoint}/{productId}");
+            if (!deleteResponse.IsSuccessStatusCode)
+                throw new Exception("Product couldn't be deleted.");
         }
     }
 }

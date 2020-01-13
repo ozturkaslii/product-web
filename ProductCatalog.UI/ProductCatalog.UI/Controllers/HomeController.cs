@@ -40,9 +40,11 @@ namespace ProductCatalog.UI.Controllers
         }
  
         [HttpPost]
-        public async Task<IActionResult> Create(ProductCreateRequestModel productCreateRequestModel)
+        public async Task<IActionResult> Create([Bind("Code,Name,Photo,Price")] 
+            ProductCreateRequestModel productCreateRequestModel)
         {
-            await _productCatalogService.CreateProduct(productCreateRequestModel);
+            if(ModelState.IsValid)
+                await _productCatalogService.CreateProduct(productCreateRequestModel);
 
             return RedirectToAction("Index");
         }
@@ -60,9 +62,11 @@ namespace ProductCatalog.UI.Controllers
 
         [HttpPost]
         [Route("/Home/Edit/{productId}")]
-        public async Task<IActionResult> Edit(ProductUpdateRequestModel productUpdateRequestModel)
+        public async Task<IActionResult> Edit(int productId, [Bind("Code,Name,Photo,Price")] 
+            ProductUpdateRequestModel productUpdateRequestModel)
         {
-            await _productCatalogService.UpdateProduct(productUpdateRequestModel);
+            if(ModelState.IsValid)
+                await _productCatalogService.UpdateProduct(productId, productUpdateRequestModel);
 
             return RedirectToAction("Index");
         }

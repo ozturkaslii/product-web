@@ -9,7 +9,7 @@ namespace ProductCatalog.UI.Services
         Task<List<ProductGetResponseModel>> GetProducts();
         Task<T> GetProductDetail<T>(int productId);
         Task<ProductCreateResponseModel> CreateProduct(ProductCreateRequestModel productCreateRequestModel);
-        Task UpdateProduct(ProductUpdateRequestModel productUpdateRequestModel);
+        Task UpdateProduct(int productId, ProductUpdateRequestModel productUpdateRequestModel);
         Task DeleteProduct(int productId);
     }
 }
